@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Selamat Ulang Tahun Sembara</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Fredoka One', cursive;
+      color: black;
+      overflow-y: scroll;  /* Memastikan scroll dapat berjalan */
+      scroll-behavior: smooth; /* Untuk smooth scrolling */
+    }
+
+    body {
+      background: linear-gradient(270deg, #A7C7E7, #A1D0D6); /* Biru pastel */
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      scroll-snap-type: y mandatory; /* Mengaktifkan scroll snap */
+      height: 100vh;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    section {
+      height: 100vh; /* Setiap bagian memiliki tinggi 100% layar */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      scroll-snap-align: start; /* Membuat setiap section scroll ke tempatnya */
+    }
+
+    .content {
+      width: 90%;
+      max-width: 900px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #2E93A1; /* Biru gelap */
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #4A90E2; /* Biru terang */
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-gift {
+      background-color: #4A90E2;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: background-color 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      margin-top: 2rem; /* Memberikan ruang atas */
+      display: inline-block;
+    }
+
+    .btn-gift:hover {
+      background-color: #2E93A1;
+    }
+
+    /* Animasi balon */
+    .balloon {
+      position: absolute;
+      width: 50px;
+      height: 70px;
+      background-color: #5DB8E8;
+      border-radius: 50% 50% 50% 50%;
+      animation: float 10s infinite ease-in-out;
+      opacity: 0.7;
+    }
+
+    .balloon:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .balloon:nth-child(2) { left: 30%; animation-delay: 2s; background-color: #F8A7C3; }
+    .balloon:nth-child(3) { left: 60%; animation-delay: 4s; background-color: #F7E9A7; }
+    .balloon:nth-child(4) { left: 80%; animation-delay: 6s; background-color: #A1E3D8; }
+
+    @keyframes float {
+      0% { top: 100%; transform: translateY(0) rotate(0deg); }
+      100% { top: -150px; transform: translateY(-100%) rotate(360deg); }
+    }
+
+    audio {
+      display: none;
+    }
+
+    /* Media Query untuk perangkat mobile */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .btn-gift {
+        font-size: 1.2rem; /* Mengurangi ukuran font pada tombol */
+        padding: 1rem 1.5rem; /* Menyesuaikan padding */
+      }
+
+      section {
+        padding: 1.5rem; /* Menyesuaikan padding di mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Musik -->
+<!-- Tombol Musik -->
+<button id="playMusic" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: #ffffffaa;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  background-image: url('https://img.icons8.com/ios-filled/50/000000/musical-notes.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+"></button>
+
+<!-- Audio -->
+<audio id="bgMusic" preload="auto" loop playsinline>
+  <source src="https://github.com/jesyca17/Lagu-sembara/raw/main/Sembara.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Script Pemutar Musik -->
+<script>
+  const audio = document.getElementById("bgMusic");
+  const btnMusic = document.getElementById("playMusic");
+
+  let isPlaying = false;
+
+  btnMusic.addEventListener("click", () => {
+    if (!isPlaying) {
+      audio.play().then(() => {
+        isPlaying = true;
+        btnMusic.style.backgroundColor = "#ccffcc"; // Ganti warna saat aktif
+      }).catch(err => {
+        alert("Autoplay diblokir: " + err.message);
+      });
+    } else {
+      audio.pause();
+      isPlaying = false;
+      btnMusic.style.backgroundColor = "#ffffffaa"; // Reset warna
+    }
+  });
+</script>
+
+
+</body>
+</html>
+
+
+
+
+<!-- Balon animasi -->
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+
+<!-- Bagian pertama -->
+<section style="background: rgba(255, 255, 255, 0.6);">
+  <div class="content">
+    <h1>🎂 Selamat Ulang Tahun ke-2 🎉</h1>
+    <h2>Sembara Sasenna</h2>
+    <p>Putra tercinta dari Endyta & Abd Rohman</p>
+    <p>Semoga tumbuh sehat, bahagia, dan penuh cinta. Dua tahun sudah kamu memberi warna dan tawa!</p>
+  </div>
+</section>
+
+<!-- Bagian kedua -->
+<section style="background: rgba(255, 255, 255, 0.7);">
+  <div class="content">
+    <p>Ucapan sayang dari keluarga Jesyca & Surur, serta anak kami Sambara Ramawijaya 💙</p>
+  </div>
+</section>
+
+<!-- Bagian ketiga -->
+<section style="background: rgba(255, 255, 255, 0.8);">
+  <div class="content">
+    <p>🎁 Waktunya kejutan! 🎉</p>
+    <a class="btn-gift" href="https://link-dana-kaget-kamu.com" target="_blank">🎁 Buka Kadonya di Sini 🎁</a>
+  </div>
+</section>
+
+</body>
+</html>
